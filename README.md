@@ -8,7 +8,7 @@
 
 For full data structures and project details, check the docs:
 
-- [TR](./docs/TR.md) / [EN](./docs/EN.md)
+- [𝙏𝙍](./docs/TR.md) / [𝙀𝙉](./docs/EN.md)
 
 ---
 
