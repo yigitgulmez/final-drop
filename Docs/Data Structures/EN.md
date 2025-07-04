@@ -1,7 +1,5 @@
 ## 📁 MongoDB Collection Structure – UNO Card Game
 
----
-
 > [𝙏𝙍](./TR.md) / 𝙀𝙉
 
 ---
