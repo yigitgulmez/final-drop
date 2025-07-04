@@ -1,7 +1,5 @@
 ## 📁 MongoDB Koleksiyon Yapısı – UNO Kart Oyunu
 
----
-
 > 𝙏𝙍 / [𝙀𝙉](./EN.md)
 
 ---
