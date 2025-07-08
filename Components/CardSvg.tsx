@@ -1,4 +1,4 @@
-import { BlockIcon, ReverseIcon, DrawTwoIcon, WildDrawFourIcon } from "./Icons";
+import { BlockIcon, ReverseIcon, DrawTwoIcon, WildDrawFourIcon, WildIcon } from "./Icons";
 
 type CardColor = "red" | "green" | "blue" | "yellow";
 type CardIcon = "block" | "reverse" | "draw_two" | "wild_draw_four";
@@ -15,6 +15,7 @@ const ICON_COMPONENTS: Record<CardIcon, React.FC<{ color: string; size: number }
   reverse: ReverseIcon,
   draw_two: DrawTwoIcon,
   wild_draw_four: WildDrawFourIcon,
+  wild: WildIcon,
 };
 
 export default function CardSvg({
