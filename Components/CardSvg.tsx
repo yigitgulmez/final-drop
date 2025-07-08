@@ -10,13 +10,6 @@ const COLOR_MAP: Record<CardColor, string> = {
   yellow: "#eab308",
 };
 
-const DARK_COLOR_MAP: Record<CardColor, string> = {
-  red: '#b91c1c',
-  green: '#166534',
-  blue: '#1e40af',
-  yellow: '#a16207',
-};
-
 const ICON_COMPONENTS: Record<CardIcon, React.FC<{ color: string }>> = {
   block: BlockIcon,
   reverse: ReverseIcon,
