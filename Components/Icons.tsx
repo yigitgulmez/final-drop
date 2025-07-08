@@ -2,6 +2,29 @@ import React from "react";
 
 type IconProps = { color: string; size: number };
 
+
+export function BackgroundBox({
+  strokeWidth,
+}: {
+  strokeWidth: number;
+}) {
+  return (
+    <rect
+      x={-36}
+      y={-36}
+      width={72}
+      height={72}
+      rx={12}
+      fill="white"
+      stroke="black"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      opacity={0.25}
+    />
+  );
+}
+
 export function BlockIcon({ color, size }: IconProps) {
   const strokeWidth = size * 0.1;
 
@@ -13,17 +36,7 @@ export function BlockIcon({ color, size }: IconProps) {
       opacity={0.85}
     >
       {/* Opaklığı düşük arka kutu */}
-      <rect
-        x={-36}
-        y={-36}
-        width={72}
-        height={72}
-        rx={12}
-        fill="white"
-        stroke="black"
-        strokeWidth={strokeWidth}
-        opacity={0.25}
-      />
+      <BackgroundBox strokeWidth={strokeWidth}/>
 
       {/* Yeni block path */}
       <path
@@ -47,17 +60,7 @@ export function ReverseIcon({ color, size }: { color: string; size: number }) {
       fill="none"
     >
       {/* Opaklığı düşük arka kutu */}
-      <rect
-        x={-36}
-        y={-36}
-        width={72}
-        height={72}
-        rx={12}
-        fill="white"
-        stroke="black"
-        strokeWidth={strokeWidth}
-        opacity={0.25}
-      />
+      <BackgroundBox strokeWidth={strokeWidth}/>
 
       {/* Asıl reverse path */}
       <path
@@ -71,37 +74,46 @@ export function ReverseIcon({ color, size }: { color: string; size: number }) {
 
 
 export function DrawTwoIcon({ color, size }: IconProps) {
-  const cardW = size * .4;
-  const cardH = size * .6;
-  const center = size / 2;
+  const strokeWidth = size * 0.1;
+  const center = 0;
+
+  const cardW = Math.max(size * 0.6, 34);
+  const cardH = Math.max(size * 0.75, 50);
 
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox={`-40 -40 80 80`}>
+      <BackgroundBox strokeWidth={strokeWidth} />
+
       {/* Arka kart */}
       <rect
-        x={center - cardW / 2 - 6}
-        y={center - cardH / 2 - 4}
+        x={center - cardW / 2 - 5}
+        y={center - cardH / 2 - 3}
         width={cardW}
         height={cardH}
         rx={4}
         fill="white"
         opacity={0.6}
       />
+
       {/* Ön kart */}
       <rect
-        x={center - cardW / 2}
-        y={center - cardH / 2}
+        x={center - cardW / 2 + 5}
+        y={center - cardH / 2 + 2}
         width={cardW}
         height={cardH}
         rx={4}
         fill="white"
       />
-      {/* +2, tam ortada */}
+
+      {/* +2 */}
       <text
         x={center}
-        y={center + cardH * .15}
+        y={center + cardH * 0.15}
         textAnchor="middle"
-        fontSize={size * .35}
+        fontSize={Math.max(size * 0.35, 25)}
         fill={color}
         fontWeight="bold"
         fontFamily="Arial"
@@ -112,20 +124,27 @@ export function DrawTwoIcon({ color, size }: IconProps) {
   );
 }
 
+
 const COLOR_MAP = ["#ef4444", "#22c55e", "#3b82f6", "#eab308"];
 
 export function WildDrawFourIcon({ color, size }: IconProps) {
-  const cardSize = size * .35;
-  const center = size / 2;
+  const strokeWidth = size * 0.1;
+  const cardSize = 29;
+  const gap = 2;
+
   const positions = [
-    [center - cardSize, center - cardSize],
-    [center, center - cardSize],
-    [center - cardSize, center],
-    [center, center],
+    [-cardSize - gap / 2, -cardSize - gap / 2],
+    [gap / 2, -cardSize - gap / 2],
+    [-cardSize - gap / 2, gap / 2],
+    [gap / 2, gap / 2],
   ];
 
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="-40 -40 80 80">
+      <BackgroundBox strokeWidth={strokeWidth} />
       {positions.map(([x, y], i) => (
         <rect
           key={i}
@@ -134,16 +153,17 @@ export function WildDrawFourIcon({ color, size }: IconProps) {
           width={cardSize}
           height={cardSize}
           fill={COLOR_MAP[i]}
-          rx={3}
+          rx={4}
         />
       ))}
-      {/* +4 ortada */}
       <text
-        x={center}
-        y={center + cardSize * .4}
+        x={0}
+        y={9}
         textAnchor="middle"
-        fontSize={size * .35}
+        fontSize={Math.max(size * 0.8, 30)}
         fill="white"
+        stroke="black"
+        strokeWidth={0.5}
         fontWeight="bold"
         fontFamily="Arial"
       >
