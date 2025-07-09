@@ -1,4 +1,4 @@
-export type MoveAction = 'play_card' | 'draw_card' | 'pass';
+type MoveAction = 'play_card' | 'draw_card' | 'pass';
 
 export interface Move {
   _id: string;

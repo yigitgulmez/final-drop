@@ -1,9 +1,15 @@
 import React from "react";
+import { CardIcon, IconProps, COLOR_MAP } from '@/type'
 
-type IconProps = { color: string; size: number };
+export const ICON_COMPONENTS: Record<CardIcon, IconProps> = {
+  block: BlockIcon,
+  reverse: ReverseIcon,
+  draw_two: DrawTwoIcon,
+  wild_draw_four: WildDrawFourIcon,
+  wild: WildIcon,
+};
 
-
-export function BackgroundBox({
+function BackgroundBox({
   strokeWidth,
 }: {
   strokeWidth: number;
@@ -25,8 +31,7 @@ export function BackgroundBox({
     />
   );
 }
-
-export function BlockIcon({ color, size }: IconProps) {
+function BlockIcon({ color, size }: IconProps) {
   const strokeWidth = size * 0.1;
 
   return (
@@ -49,7 +54,7 @@ export function BlockIcon({ color, size }: IconProps) {
 
 
 
-export function ReverseIcon({ color, size }: { color: string; size: number }) {
+function ReverseIcon({ color, size }: { color: string; size: number }) {
   const strokeWidth = size * .1;
 
   return (
@@ -71,7 +76,7 @@ export function ReverseIcon({ color, size }: { color: string; size: number }) {
 }
 
 
-export function DrawTwoIcon({ color, size }: IconProps) {
+function DrawTwoIcon({ color, size }: IconProps) {
   const strokeWidth = size * 0.1;
   const center = 0;
 
@@ -122,10 +127,7 @@ export function DrawTwoIcon({ color, size }: IconProps) {
   );
 }
 
-
-const COLOR_MAP = ["#ef4444", "#22c55e", "#3b82f6", "#eab308"];
-
-export function WildDrawFourIcon({ color, size }: IconProps) {
+function WildDrawFourIcon({ color, size }: IconProps) {
   const strokeWidth = size * 0.1;
   const cardSize = 29;
   const gap = 2;
@@ -175,7 +177,7 @@ export function WildDrawFourIcon({ color, size }: IconProps) {
   );
 }
 
-export function WildIcon({ color, size }: IconProps) {
+function WildIcon({ color, size }: IconProps) {
   const strokeWidth = size * 0.1;
   const cardSize = 29;
   const gap = 2;

@@ -6,8 +6,8 @@ export interface Game {
   players: string[];
   status: GameStatus;
   winner: string | null;
-  startedAt: Date | null;
-  endedAt: Date | null;
+  startedAt: Date ;
+  endedAt: Date ;
   maxDurationMinutes: number;
 }
 

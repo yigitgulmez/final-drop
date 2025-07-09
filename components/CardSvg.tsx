@@ -1,22 +1,5 @@
-import { BlockIcon, ReverseIcon, DrawTwoIcon, WildDrawFourIcon, WildIcon } from "./Icons";
-
-type CardColor = "red" | "green" | "blue" | "yellow";
-type CardIcon = "block" | "reverse" | "draw_two" | "wild_draw_four";
-
-const COLOR_MAP: Record<CardColor, string> = {
-  red: "#ef4444",
-  green: "#22c55e",
-  blue: "#3b82f6",
-  yellow: "#eab308",
-};
-
-const ICON_COMPONENTS: Record<CardIcon, React.FC<{ color: string; size: number }>> = {
-  block: BlockIcon,
-  reverse: ReverseIcon,
-  draw_two: DrawTwoIcon,
-  wild_draw_four: WildDrawFourIcon,
-  wild: WildIcon,
-};
+import { BlockIcon, ReverseIcon, DrawTwoIcon, WildDrawFourIcon, WildIcon, CardColor, CardIcon, COLOR_MAP } from "@/types";
+import { ICON_COMPONENTS } from '@/components'
 
 export default function CardSvg({
   color = "blue",
