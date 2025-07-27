@@ -12,6 +12,8 @@ To create all schemas and seed test data, run:
 node createDB.js
 ```
 
+---
+
 ### 1. `users` – Users
 
 ```json
